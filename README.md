@@ -2,7 +2,7 @@
 
 Use [Bang](https://duckduckgo.com/bangs) in command line.
 
-![Hanazono Tae][https://static.wikia.nocookie.net/bandori/images/7/73/Img_tae.png/revision/latest]
+![Hanazono Tae](https://static.wikia.nocookie.net/bandori/images/7/73/Img_tae.png/revision/latest)
 
 ## How to use
 
