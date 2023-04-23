@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.BangList = void 0;
-const fs_1 = require("./modules/fs");
-const ajax_1 = require("./modules/ajax");
-class BangList {
+import { create_file, read_file } from "./modules/fs";
+import { get_list } from "./modules/ajax";
+export class BangList {
     get current_item() {
         return this.list[this.index];
     }
@@ -23,7 +20,7 @@ class BangList {
         this.keyword = keyword;
     }
     get_list() {
-        (0, fs_1.read_file)().then((c) => this.parse_json(c)).catch(() => {
+        read_file().then((c) => this.parse_json(c)).catch(() => {
             this.update();
         });
     }
@@ -38,8 +35,8 @@ class BangList {
     }
     update() {
         return new Promise((resolve, reject) => {
-            (0, ajax_1.get_list)().then((c) => {
-                (0, fs_1.create_file)(String(c));
+            get_list().then((c) => {
+                create_file(String(c));
                 this.parse_json(c);
                 resolve(c);
             }).catch(c => reject(c));
@@ -73,4 +70,3 @@ class BangList {
         return item.u.replace(query, keyword);
     }
 }
-exports.BangList = BangList;

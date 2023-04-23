@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.read_file = exports.create_file = void 0;
-const fs_1 = require("fs");
+import { readFile, writeFile } from "fs";
 const name = "./build/bang.json";
-const create_file = (content = "") => {
+export const create_file = (content = "") => {
     /**
      * ha ha
      * @see https://stackoverflow.com/a/549611/7162445
@@ -13,12 +10,11 @@ const create_file = (content = "") => {
         if (up)
             throw up;
     };
-    (0, fs_1.writeFile)(name, JSON.stringify(content), error_handling);
+    writeFile(name, JSON.stringify(content), error_handling);
 };
-exports.create_file = create_file;
-const read_file = () => {
+export const read_file = () => {
     return new Promise((resolve, reject) => {
-        (0, fs_1.readFile)(name, (up, content) => {
+        readFile(name, (up, content) => {
             if (up) {
                 reject(up);
             }
@@ -26,4 +22,3 @@ const read_file = () => {
         });
     });
 };
-exports.read_file = read_file;
