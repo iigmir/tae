@@ -6,8 +6,10 @@ const main = (input_bang = "", keyword = "") => {
     if( need_update ) {
         bang.update();
     }
-    // console.log({ b: bang.bang });
     bang.set_data();
+    // import("open").then((open) => {
+    //     open( bang.url, { wait: true });; // true
+    // });
 };
 
 const get_keywords = (args: string[]) => {

@@ -56,7 +56,6 @@ class BangList {
                 }
                 else {
                     this.index = new_id;
-                    this.jump(this.current_item, this.keyword);
                 }
             };
             this.update().then(action);
@@ -64,13 +63,14 @@ class BangList {
         }
         else {
             this.index = id;
-            this.jump(this.current_item, this.keyword);
             return;
         }
     }
-    jump(item, keyword = this.keyword) {
+    get url() {
+        const item = this.current_item;
+        const keyword = this.keyword;
         const query = "{{{s}}}";
-        console.log(item.u.replace(query, keyword));
+        return item.u.replace(query, keyword);
     }
 }
 exports.BangList = BangList;
