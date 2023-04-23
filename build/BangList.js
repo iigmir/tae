@@ -45,16 +45,9 @@ class BangList {
             }).catch(c => reject(c));
         });
     }
-    set_index(input) {
-        this.index = input;
-    }
     set_data() {
         const keyword = this.bang.slice(1);
         const id = this.list.findIndex(its => its.t === keyword);
-        const go = (id = this.index) => {
-            this.index = id;
-            this.jump(this.current_item, this.keyword);
-        };
         if (id < 0) {
             const action = () => {
                 const new_id = this.list.findIndex(its => its.t === keyword);
@@ -62,14 +55,16 @@ class BangList {
                     throw new Error("Not found");
                 }
                 else {
-                    go(new_id);
+                    this.index = new_id;
+                    this.jump(this.current_item, this.keyword);
                 }
             };
             this.update().then(action);
             return;
         }
         else {
-            go(id);
+            this.index = id;
+            this.jump(this.current_item, this.keyword);
             return;
         }
     }

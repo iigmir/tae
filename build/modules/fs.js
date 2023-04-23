@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.read_file = exports.create_file = void 0;
 const fs_1 = require("fs");
+const name = "./build/bang.json";
 const create_file = (content = "") => {
     /**
      * ha ha
@@ -12,12 +13,10 @@ const create_file = (content = "") => {
         if (up)
             throw up;
     };
-    const name = "./bang.json";
     (0, fs_1.writeFile)(name, JSON.stringify(content), error_handling);
 };
 exports.create_file = create_file;
 const read_file = () => {
-    const name = "./bang.json";
     return new Promise((resolve, reject) => {
         (0, fs_1.readFile)(name, (up, content) => {
             if (up) {
