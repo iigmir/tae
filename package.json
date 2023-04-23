@@ -10,8 +10,8 @@
     "start": "node build/cli.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "iigmir",
+  "license": "GNU LGPLv3",
   "devDependencies": {
     "@types/node": "^18.16.0",
     "typescript": "^5.0.4"
