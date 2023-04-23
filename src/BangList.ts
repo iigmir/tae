@@ -53,19 +53,19 @@ export class BangList {
                     throw new Error("Not found");
                 } else {
                     this.index = new_id;
-                    this.jump(this.current_item, this.keyword);
                 }
             };
             this.update().then( action );
             return;
         } else {
             this.index = id;
-            this.jump(this.current_item, this.keyword);
             return;
         }
     }
-    jump(item: BangItemInterface, keyword = this.keyword) {
+    get url() {
+        const item: BangItemInterface = this.current_item;
+        const keyword = this.keyword;
         const query = "{{{s}}}";
-        console.log(item.u.replace( query, keyword ));
+        return item.u.replace( query, keyword );
     }
 }
