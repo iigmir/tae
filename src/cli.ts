@@ -7,6 +7,7 @@ const main = (input_bang = "", keyword = "") => {
         bang.update();
     }
     bang.set_data();
+    console.log(bang.url);
 };
 
 const get_keywords = (args: string[]) => {
