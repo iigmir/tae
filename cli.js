@@ -1,4 +1,4 @@
-import { BangList } from "./build/BangList.js";
+import { BangList } from "./lib/BangList.js";
 
 /**
  * The main script.
