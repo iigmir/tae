@@ -1,5 +1,10 @@
-import { BangList } from "./BangList";
+import { BangList } from "./build/BangList.js";
 
+/**
+ * The main script.
+ * @param {String} input_bang 
+ * @param {String} keyword 
+ */
 const main = (input_bang = "", keyword = "") => {
     const bang = new BangList(input_bang, keyword);
     const need_update = process.argv.findIndex( arg => arg.startsWith("--update") );
@@ -10,7 +15,12 @@ const main = (input_bang = "", keyword = "") => {
     console.log(bang.url);
 };
 
-const get_keywords = (args: string[]) => {
+/**
+ * Get the keyword.
+ * @param {String[]} args 
+ * @returns 
+ */
+const get_keywords = (args =[]) => {
     const bang = args[0];
     const keywords = args.slice(1);
     const flags = keywords.findIndex( s => /^--/.test(s) );
