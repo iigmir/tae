@@ -18,12 +18,13 @@ const main = (input_bang = "", keyword = "", force_update = false) => {
             }
         };
         const throw_up = up => { console.error(up); throw up; };
-        if( force_update ) {
-            bang.update().then( get_url ).catch( throw_up );
-        } else {
-            let ajax = bang.main();
-            ajax.then( get_url ).catch( throw_up );
-        }
+        bang.main( force_update ).then( get_url ).catch( throw_up );
+        // if( force_update ) {
+        //     bang.update().then( get_url ).catch( throw_up );
+        // } else {
+        //     let ajax = bang.main();
+        //     ajax.then( get_url ).catch( throw_up );
+        // }
     });
 };
 
