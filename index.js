@@ -2,8 +2,10 @@ import { BangList } from "./lib/BangList.js";
 
 /**
  * The main script.
- * @param {String} input_bang 
- * @param {String} keyword 
+ * @param {*} input_bang The Bang.
+ * @param {*} keyword The keyword you want to input.
+ * @param {*} force_update Force tae update bang
+ * @returns The BangList should returns URL.
  */
 const main = (input_bang = "", keyword = "", force_update = false) => {
     return new Promise( (resolve, reject) => {
