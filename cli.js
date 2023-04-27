@@ -1,4 +1,4 @@
-import { BangList } from "./lib/BangList.js";
+import tae from "./index.js";
 
 /**
  * Get the keyword.
@@ -19,12 +19,8 @@ const get_keywords = (args =[]) => {
  * @param {String} keyword 
  */
 const main = (input_bang = "", keyword = "") => {
-    const bang = new BangList(input_bang, keyword);
-    const need_update = process.argv.findIndex( arg => arg.startsWith("--update") );
-    if( need_update ) {
-        bang.update();
-    }
-    bang.main().then( () => {
+    const need_update = process.argv.findIndex( arg => arg.startsWith("--update") ) > -1;
+    tae( input_bang, keyword, need_update ).then( () => {
         console.log(bang.url);
     });
 };
