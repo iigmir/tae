@@ -17,10 +17,11 @@ const main = (input_bang = "", keyword = "", force_update = false) => {
                 reject(error);
             }
         };
+        const throw_up = up => { console.error(up); throw up; };
         if( force_update ) {
-            bang.update().then( get_url ).catch( up => { console.error( up ); throw up } );
+            bang.update().then( get_url ).catch( throw_up );
         } else {
-            bang.main().then( get_url ).catch( up => { console.error( up ); throw up } );
+            bang.main().then( get_url ).catch( throw_up );
         }
     });
 };

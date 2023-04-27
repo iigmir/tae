@@ -9,7 +9,7 @@ const get_keywords = (args =[]) => {
     const bang = args[0];
     const keywords = args.slice(1);
     const flags = keywords.findIndex( s => /^--/.test(s) );
-    const new_keywords = args.slice(1, flags);
+    const new_keywords = flags > -1 ? args.slice( 1, flags ) : args.slice(1);
     return { bang, keywords: new_keywords.join(" ") };
 };
 
