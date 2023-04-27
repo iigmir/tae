@@ -21,7 +21,8 @@ const main = (input_bang = "", keyword = "", force_update = false) => {
         if( force_update ) {
             bang.update().then( get_url ).catch( throw_up );
         } else {
-            bang.main().then( get_url ).catch( throw_up );
+            let ajax = bang.main();
+            ajax.then( get_url ).catch( throw_up );
         }
     });
 };
