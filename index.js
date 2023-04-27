@@ -18,9 +18,9 @@ const main = (input_bang = "", keyword = "", force_update = false) => {
             }
         };
         if( force_update ) {
-            bang.update().then( get_url );
+            bang.update().then( get_url ).catch( up => { console.error( up ); throw up } );
         } else {
-            bang.main().then( get_url );
+            bang.main().then( get_url ).catch( up => { console.error( up ); throw up } );
         }
     });
 };

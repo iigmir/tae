@@ -20,8 +20,8 @@ const get_keywords = (args =[]) => {
  */
 const main = (input_bang = "", keyword = "") => {
     const need_update = process.argv.findIndex( arg => arg.startsWith("--update") ) > -1;
-    tae( input_bang, keyword, need_update ).then( () => {
-        console.log(bang.url);
+    tae( input_bang, keyword, need_update ).then( (url) => {
+        console.log(url);
     });
 };
 
