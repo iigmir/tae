@@ -1,4 +1,4 @@
-import { BangList } from "./lib/BangList.js";
+import { BangData } from "./lib/BangData.js";
 
 /**
  * The main script.
@@ -9,7 +9,7 @@ import { BangList } from "./lib/BangList.js";
  */
 const main = (input_bang = "", keyword = "", force_update = false) => {
     return new Promise( (resolve, reject) => {
-        const bang = new BangList(input_bang, keyword);
+        const bang = new BangData(input_bang, keyword);
         const get_url = () => {
             try {
                 resolve(bang.url);
